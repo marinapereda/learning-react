@@ -18,6 +18,21 @@ function App() {
           Learn React - Hello
         </a>
       </header>
+
+      <nav>
+        <ul>
+          <li>
+            <a href="" className="list-item">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="" className="list-item">
+              Contact
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }
