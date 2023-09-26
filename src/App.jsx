@@ -12,10 +12,10 @@ function App() {
         </nav>
       </header>
 
-      <main>
+      <main className="pt-3">
         <div className="container">
           <div className="row">
-            <Greeting nombre="¡Hola!" />
+            <Greeting mensaje="¡Hola!" />
           </div>
         </div>
       </main>
