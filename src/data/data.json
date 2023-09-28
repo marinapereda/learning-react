@@ -1,0 +1,29 @@
+[
+  {
+    "ID": 1,
+    "Name": "I Love AI T-Shirt",
+    "ProductType": "T-Shirts",
+    "Size": ["S", "M", "L"],
+    "Price": 20,
+    "Color": ["White", "Black"],
+    "Description": "Lorem ipsum"
+  },
+  {
+    "ID": 2,
+    "Name": "I Love AI Hoodie",
+    "ProductType": "Hoodies",
+    "Size": ["S", "M", "L"],
+    "Price": 20,
+    "Color": ["White", "Black"],
+    "Description": "Lorem ipsum"
+  },
+  {
+    "ID": 3,
+    "Name": "I Love AI Tank",
+    "ProductType": "Tanks",
+    "Size": ["S", "M", "L"],
+    "Price": 12,
+    "Color": ["White", "Black"],
+    "Description": "Lorem ipsum"
+  }
+]

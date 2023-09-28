@@ -1,7 +1,8 @@
+import React from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import NavBar from "./components/NavBar.js";
-import Greeting from "./components/itemListContainer.js";
+import ItemListContainer from "./components/itemListContainer.js";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
       <main className="pt-3">
         <div className="container">
           <div className="row">
-            <Greeting mensaje="¡Hola!" />
+            <ItemListContainer />
           </div>
         </div>
       </main>

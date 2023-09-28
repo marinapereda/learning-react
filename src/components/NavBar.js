@@ -3,7 +3,7 @@ import Cart from "./CartWidget.js";
 const NavBar = () => {
   return (
     <div className="container-fluid">
-      <a class="navbar-brand" href="#">
+      <a className="navbar-brand" href="#">
         ILoveAI
       </a>
       <div className="collapse navbar-collapse justify-content-end">
