@@ -2,28 +2,34 @@
   {
     "ID": 1,
     "Name": "I Love AI T-Shirt",
+    "Image": "https://ih1.redbubble.net/image.891443528.0234/ssrco,slim_fit_t_shirt,mens,fafafa:ca443f4786,front,square_product,600x600.u1.jpg",
+    "Desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus hendrerit ipsum vel tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "ProductType": "T-Shirts",
     "Size": ["S", "M", "L"],
     "Price": 20,
     "Color": ["White", "Black"],
-    "Description": "Lorem ipsum"
+    "Stock": 2
   },
   {
     "ID": 2,
     "Name": "I Love AI Hoodie",
+    "Image": "https://res.cloudinary.com/teepublic/image/private/s--YkxZXKxJ--/t_Resized%20Artwork/c_crop,x_10,y_10/c_fit,w_465/c_crop,g_north_west,h_620,w_465,x_0,y_0/g_north_west,u_upload:v1446840653:production:blanks:f6q1psnlmvhpoighmph1,x_-391,y_-276/b_rgb:eeeeee/c_limit,f_auto,h_630,q_auto:good:420,w_630/v1577437167/production/designs/7360714_0.jpg",
+    "Desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus hendrerit ipsum vel tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "ProductType": "Hoodies",
     "Size": ["S", "M", "L"],
     "Price": 20,
     "Color": ["White", "Black"],
-    "Description": "Lorem ipsum"
+    "Stock": 12
   },
   {
     "ID": 3,
     "Name": "I Love AI Tank",
+    "Image": "https://res.cloudinary.com/teepublic/image/private/s--EumqS14Y--/t_Resized%20Artwork/c_crop,x_10,y_10/c_fit,w_378/c_crop,g_north_west,h_504,w_378,x_0,y_0/g_north_west,u_upload:v1460136570:production:blanks:mbwst8xidnbwun9t4sui,x_-450,y_-392/b_rgb:eeeeee/c_limit,f_auto,h_630,q_auto:good:420,w_630/v1577437167/production/designs/7360714_0.jpg",
+    "Desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus hendrerit ipsum vel tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "ProductType": "Tanks",
     "Size": ["S", "M", "L"],
     "Price": 12,
     "Color": ["White", "Black"],
-    "Description": "Lorem ipsum"
+    "Stock": 8
   }
 ]
