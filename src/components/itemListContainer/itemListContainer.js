@@ -27,6 +27,19 @@ export const getProductById = (ID) => {
   });
 };
 
+export const getProductsByCategory = (category) => {
+  return new Promise((resolve, reject) => {
+    const productsInCategory = products.filter(
+      (prod) => prod.Category === category
+    );
+    if (productsInCategory.length) {
+      resolve(productsInCategory);
+    } else {
+      reject(`No products found for category: ${category}`);
+    }
+  });
+};
+
 const ItemListContainer = ({ greeting }) => {
   return (
     <div className="container">

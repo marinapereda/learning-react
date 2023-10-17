@@ -1,8 +1,19 @@
+import { useNavigate } from "react-router-dom";
 import ItemCount from "../itemCount/itemCount.js";
 
 const Item = ({ ID, Name, Image, Desc, Price, Stock }) => {
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    navigate(`/item/${ID}`);
+  };
+
   return (
-    <article id={ID} className="col col-4 list-product-ind">
+    <article
+      id={ID}
+      className="col col-4 list-product-ind"
+      onClick={handleCardClick}
+    >
       <div className="card">
         <div className="card-body">
           <img src={Image} alt={Name} />

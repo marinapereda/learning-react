@@ -1,9 +1,16 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import {
+  Container,
+  Navbar as NavbarBS,
+  Nav,
+  NavDropdown,
+  Button,
+} from "react-bootstrap";
 /* Font Awesome */
 import { library } from "@fortawesome/fontawesome-svg-core";
+import "./App.css";
 import {
   faShoppingCart,
   faPlus,
@@ -12,7 +19,6 @@ import {
 
 /* Load Pages */
 import Contact from "./pages/Contact";
-import Home from "./pages/Home";
 
 /* Load NavBar */
 import NavBar from "./components/NavBar.js";
@@ -20,6 +26,7 @@ import NavBar from "./components/NavBar.js";
 /* */
 import ItemListContainer from "./components/itemListContainer/itemListContainer.js";
 import ItemDetailContainer from "./components/itemDetailContainer/itemDetailContainer.js";
+import CategoryDetailContainer from "./components/categoryDetailContainer/categoryDetailContainer.js";
 // Adding all imported icons to the library at once
 library.add(faShoppingCart, faPlus, faMinus);
 
@@ -28,22 +35,22 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <header>
-          <nav className="navbar navbar-expand-lg bg-body-tertiary">
-            <NavBar />
-          </nav>
+          <NavBar />
         </header>
-
         <main className="pt-3">
           <div className="container">
             <div className="row">
               <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/contact/:contactId" element={<Contact />} />
                 <Route
-                  path="/shop"
+                  path="/"
                   element={<ItemListContainer greeting={"Welcome"} />}
                 />
+                <Route
+                  path="/:category"
+                  element={<CategoryDetailContainer />}
+                />
+                <Route path="/item/:ID" element={<ItemDetailContainer />} />
+                <Route path="/contact" element={<Contact />} />
               </Routes>
             </div>
           </div>
@@ -51,9 +58,7 @@ function App() {
           <section id="item-detail-container" className="mt-5 py-5">
             <div className="container">
               <div className="row">
-                <Routes>
-                  <Route path="/shop" element={<ItemDetailContainer />} />
-                </Routes>
+                <ItemDetailContainer id="3" />
               </div>
             </div>
           </section>
