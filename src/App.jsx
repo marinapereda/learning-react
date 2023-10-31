@@ -1,5 +1,7 @@
-import React from "react";
+import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { CartContext, CartProvider } from "./context/CartContext";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Container,
@@ -23,6 +25,9 @@ import Contact from "./pages/Contact";
 /* Load NavBar */
 import NavBar from "./components/NavBar.js";
 
+/* Load Cart */
+import Cart from "./components/Cart/Cart";
+
 /* */
 import ItemListContainer from "./components/itemListContainer/itemListContainer.js";
 import ItemDetailContainer from "./components/itemDetailContainer/itemDetailContainer.js";
@@ -34,35 +39,30 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <header>
-          <NavBar />
-        </header>
-        <main className="pt-3">
-          <div className="container">
-            <div className="row">
-              <Routes>
-                <Route
-                  path="/"
-                  element={<ItemListContainer greeting={"Welcome"} />}
-                />
-                <Route
-                  path="/:category"
-                  element={<CategoryDetailContainer />}
-                />
-                <Route path="/item/:ID" element={<ItemDetailContainer />} />
-                <Route path="/contact" element={<Contact />} />
-              </Routes>
-            </div>
-          </div>
-
-          <section id="item-detail-container" className="mt-5 py-5">
+        <CartProvider>
+          <header>
+            <NavBar />
+          </header>
+          <main className="pt-3">
             <div className="container">
               <div className="row">
-                <ItemDetailContainer id="3" />
+                <Routes>
+                  <Route
+                    path="/"
+                    element={<ItemListContainer greeting={"Welcome"} />}
+                  />
+                  <Route
+                    path="/:category"
+                    element={<CategoryDetailContainer />}
+                  />
+                  <Route path="/item/:ID" element={<ItemDetailContainer />} />
+                  <Route path="/cart" element={<Cart />} />
+                  <Route path="/contact" element={<Contact />} />
+                </Routes>
               </div>
             </div>
-          </section>
-        </main>
+          </main>
+        </CartProvider>
       </BrowserRouter>
     </div>
   );

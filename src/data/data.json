@@ -19,7 +19,7 @@
     "Desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus hendrerit ipsum vel tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "ProductType": "Hoodies",
     "Size": ["S", "M", "L"],
-    "Price": 20,
+    "Price": 35,
     "Color": ["White", "Black"],
     "Stock": 12
   },
@@ -31,7 +31,7 @@
     "Desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse cursus hendrerit ipsum vel tristique. Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
     "ProductType": "Tanks",
     "Size": ["S", "M", "L"],
-    "Price": 12,
+    "Price": 15,
     "Color": ["White", "Black"],
     "Stock": 8
   }

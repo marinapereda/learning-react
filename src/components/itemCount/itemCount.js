@@ -41,7 +41,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
                   increment();
                 }}
               >
-                <FontAwesomeIcon icon="fa-solid fa-plus" />
+                <FontAwesomeIcon icon="plus" /> {}
               </button>
             </div>
           </div>

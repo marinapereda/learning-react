@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import Cart from "./CartWidget.js";
+import CartWidget from "./CartWidget/CartWidget.js";
 import {
   Container,
   Navbar as NavbarBS,
@@ -38,7 +38,7 @@ const NavBar = () => {
               Contact
             </Nav.Link>
           </Nav>
-          <Cart />
+          <CartWidget />
         </NavbarBS.Collapse>
       </Container>
     </NavbarBS>

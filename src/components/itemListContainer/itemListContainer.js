@@ -1,6 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import products from "../../data/data.json";
 import ItemList from "../itemList/itemList.js";
+
+import { useParams } from "react-router-dom";
+
+import { getDocs, collection, query, where } from "firebase/firestore";
+import { db } from "../../services/firebase/firebaseConfig.js";
 
 export const getProducts = () => {
   return new Promise((resolve, reject) => {
@@ -41,6 +46,11 @@ export const getProductsByCategory = (category) => {
 };
 
 const ItemListContainer = ({ greeting }) => {
+  const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const { categoryId } = useParams();
+
   return (
     <div className="container">
       <h1>{greeting}</h1>
