@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import ItemCount from "../itemCount/itemCount.js";
 import { CartContext } from "../../context/CartContext.jsx";
 
-const Item = ({ ID, Name, Image, Desc, Price, Stock }) => {
+const Item = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
   const navigate = useNavigate();
 
   const handleCardClick = (e) => {
@@ -28,20 +28,20 @@ const Item = ({ ID, Name, Image, Desc, Price, Stock }) => {
   };
 
   const handleBuyNowClick = (e) => {
-    // This stops the click from propagating up to the parent elements
     e.stopPropagation();
   };
 
   return (
     <article
       id={ID}
-      className="col col-4 list-product-ind test"
+      className="col col-4 list-product-ind item"
       onClick={handleCardClick}
     >
       <div className="card">
         <section className="card-body">
           <img src={Image} alt={Name} />
           <h2>{Name}</h2>
+          <span className="category">{Category}</span>
           <span className="price">
             <span className="currency-symbol">$</span>
             {Price}

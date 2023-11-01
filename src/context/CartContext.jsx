@@ -34,8 +34,8 @@ export const CartProvider = ({ children }) => {
     });
   };
 
-  const removeItem = (itemId) => {
-    const cartUpdated = cart.filter((prod) => prod.ID !== itemId);
+  const removeItem = (ID) => {
+    const cartUpdated = cart.filter((prod) => prod.ID !== ID);
     setCart(cartUpdated);
   };
 
@@ -43,8 +43,8 @@ export const CartProvider = ({ children }) => {
     setCart([]);
   };
 
-  const isInCart = (itemId) => {
-    return cart.some((prod) => prod.ID === itemId);
+  const isInCart = (ID) => {
+    return cart.some((prod) => prod.ID === ID);
   };
 
   return (

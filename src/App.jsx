@@ -52,7 +52,7 @@ function App() {
                     element={<ItemListContainer greeting={"Welcome"} />}
                   />
                   <Route
-                    path="/:category"
+                    path="/:Category"
                     element={<CategoryDetailContainer />}
                   />
                   <Route path="/item/:ID" element={<ItemDetailContainer />} />

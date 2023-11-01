@@ -1,24 +1,25 @@
-import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import { getProductsByCategory } from "../itemListContainer/itemListContainer.js";
-import ItemList from "../itemList/itemList.js";
+import { useParams } from "react-router-dom";
+import ItemList from "../itemList/itemList";
+import { fetchProducts } from "../itemListContainer/itemListContainer";
 
 const CategoryDetailContainer = () => {
-  const { category } = useParams();
+  const { Category } = useParams();
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    getProductsByCategory(category)
+    fetchProducts(Category)
       .then((response) => {
+        console.log("response nuevo", response);
         setProducts(response);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, [category]);
+  }, [Category]);
 
   return (
-    <div className="row">
+    <div className="row rowTest">
       <ItemList products={products} />
     </div>
   );

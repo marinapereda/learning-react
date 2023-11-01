@@ -1,26 +1,52 @@
-import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { getProductById } from "../itemListContainer/itemListContainer.js";
 import ItemDetail from "../itemDetail/itemDetail.js";
+import { useParams } from "react-router-dom";
+import { getDoc, doc } from "firebase/firestore";
+import { db } from "../../services/firebase/firebaseConfig.js";
 
-const ItemDetailContainer = ({ id: idProp }) => {
-  const { ID: idFromParams } = useParams();
-  const actualID = idProp || idFromParams;
+const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  const { ID } = useParams();
 
   useEffect(() => {
-    getProductById(actualID)
+    setLoading(true);
+
+    const docRef = doc(db, "products", ID);
+
+    getDoc(docRef)
       .then((response) => {
-        setProduct(response);
+        if (response.exists()) {
+          const data = response.data();
+          const productAdapted = {
+            ID: response.id,
+            Name: data.Name,
+            Description: data.Description,
+            Price: data.Price,
+            Image: data.Image,
+            Stock: data.Stock,
+          };
+          setProduct(productAdapted);
+        } else {
+          console.error("No product found for ID:", ID);
+        }
       })
-      .catch((error) => {
-        console.error(error);
-      });
-  }, [actualID]);
+      .catch((err) => {
+        console.error("Error fetching product:", err);
+      })
+      .finally(() => setLoading(false));
+  }, [ID]);
 
   return (
-    <div className="row">
-      <ItemDetail {...product} />
+    <div className="container">
+      {product ? (
+        <ItemDetail {...product} />
+      ) : loading ? (
+        "Loading..."
+      ) : (
+        "Product not found"
+      )}
     </div>
   );
 };
