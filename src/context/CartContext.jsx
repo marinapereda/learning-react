@@ -9,7 +9,7 @@ export const CartProvider = ({ children }) => {
 
   // Calculate total quantity and total price
   const totalQuantity = cart.reduce((acc, item) => acc + item.quantity, 0);
-  const total = cart.reduce((acc, item) => acc + item.quantity * item.price, 0);
+  const total = cart.reduce((acc, item) => acc + item.quantity * item.Price, 0);
 
   console.log("cart");
 

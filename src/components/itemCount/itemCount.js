@@ -18,7 +18,7 @@ const ItemCount = ({ stock, initial, onAdd }) => {
   };
 
   return (
-    <div className="Counter row mt-1 g-3 align-items-center justify-content-between">
+    <div className="Counter row  g-3 align-items-center justify-content-between">
       <div className="col-auto">
         <div className="row align-items-center">
           <span className="col-auto form-text">How many?</span>

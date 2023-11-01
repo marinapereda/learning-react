@@ -1,0 +1,14 @@
+.card.cart-item {
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.card.cart-item img {
+	max-width: 80px;
+	height: auto;
+}
+
+.card .card-body .col {
+	justify-content: start;
+}

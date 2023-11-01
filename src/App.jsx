@@ -17,6 +17,7 @@ import {
   faShoppingCart,
   faPlus,
   faMinus,
+  faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 
 /* Load Pages */
@@ -33,7 +34,7 @@ import ItemListContainer from "./components/itemListContainer/itemListContainer.
 import ItemDetailContainer from "./components/itemDetailContainer/itemDetailContainer.js";
 import CategoryDetailContainer from "./components/categoryDetailContainer/categoryDetailContainer.js";
 // Adding all imported icons to the library at once
-library.add(faShoppingCart, faPlus, faMinus);
+library.add(faShoppingCart, faPlus, faMinus, faTrashCan);
 
 function App() {
   return (

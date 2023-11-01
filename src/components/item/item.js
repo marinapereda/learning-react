@@ -22,6 +22,7 @@ const Item = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
       ID,
       Name,
       Price,
+      Image,
     };
 
     addItem(item, quantity);
@@ -49,7 +50,11 @@ const Item = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
         </section>
         <footer className="card-footer">
           {quantityAdded > 0 ? (
-            <Link to="/cart" className="Option" onClick={handleBuyNowClick}>
+            <Link
+              to="/cart"
+              className="Option btn btn-primary"
+              onClick={handleBuyNowClick}
+            >
               Buy Now!
             </Link>
           ) : (

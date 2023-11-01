@@ -11,11 +11,11 @@ const CartWidget = () => {
       <div id="CartWidget">
         <Link
           to="/cart"
-          className="CartWidget"
+          className="btn btn-sm btn-secondary rounded-pill"
           style={{ display: totalQuantity > 0 ? "block" : "none" }}
         >
           <FontAwesomeIcon icon="shopping-cart" />
-          {totalQuantity}
+          <span class="badge text-bg-light ms-2">{totalQuantity}</span>
         </Link>
       </div>
     </>
