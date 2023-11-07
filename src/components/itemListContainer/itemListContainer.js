@@ -29,7 +29,7 @@ const ItemListContainer = ({ greeting }) => {
 
     fetchProducts(Category)
       .then((response) => {
-        console.log("new new response", response);
+        // console.log("new new response", response);
         setProducts(response);
       })
 

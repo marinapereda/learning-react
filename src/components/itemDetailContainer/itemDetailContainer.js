@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import ItemDetail from "../itemDetail/itemDetail.js";
 import { useParams } from "react-router-dom";
-import { getDoc, doc } from "firebase/firestore";
+import { doc, getDoc } from "firebase/firestore";
 import { db } from "../../services/firebase/firebaseConfig.js";
 
 const ItemDetailContainer = () => {
@@ -19,6 +19,7 @@ const ItemDetailContainer = () => {
       .then((response) => {
         if (response.exists()) {
           const data = response.data();
+          console.log("muestrame", data);
           const productAdapted = {
             ID: response.id,
             Name: data.Name,

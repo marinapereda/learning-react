@@ -15,7 +15,7 @@ const CartWidget = () => {
           style={{ display: totalQuantity > 0 ? "block" : "none" }}
         >
           <FontAwesomeIcon icon="shopping-cart" />
-          <span class="badge text-bg-light ms-2">{totalQuantity}</span>
+          <span className="badge text-bg-light ms-2">{totalQuantity}</span>
         </Link>
       </div>
     </>

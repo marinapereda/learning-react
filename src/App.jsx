@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContext, CartProvider } from "./context/CartContext";
 
+/* Bootstrap */
 import "bootstrap/dist/css/bootstrap.min.css";
 import {
   Container,
@@ -10,9 +11,10 @@ import {
   NavDropdown,
   Button,
 } from "react-bootstrap";
+
 /* Font Awesome */
 import { library } from "@fortawesome/fontawesome-svg-core";
-import "./App.css";
+
 import {
   faShoppingCart,
   faPlus,
@@ -20,19 +22,17 @@ import {
   faTrashCan,
 } from "@fortawesome/free-solid-svg-icons";
 
+import "./App.css";
+
 /* Load Pages */
-import Contact from "./pages/Contact";
+import { Contact, Cart, AddOrder } from "./pages";
 
-/* Load NavBar */
+/* Load Components */
 import NavBar from "./components/NavBar.js";
-
-/* Load Cart */
-import Cart from "./components/Cart/Cart";
-
-/* */
 import ItemListContainer from "./components/itemListContainer/itemListContainer.js";
 import ItemDetailContainer from "./components/itemDetailContainer/itemDetailContainer.js";
 import CategoryDetailContainer from "./components/categoryDetailContainer/categoryDetailContainer.js";
+
 // Adding all imported icons to the library at once
 library.add(faShoppingCart, faPlus, faMinus, faTrashCan);
 
@@ -59,6 +59,7 @@ function App() {
                   <Route path="/item/:ID" element={<ItemDetailContainer />} />
                   <Route path="/cart" element={<Cart />} />
                   <Route path="/contact" element={<Contact />} />
+                  <Route path="/checkout" element={<AddOrder />} />
                 </Routes>
               </div>
             </div>
