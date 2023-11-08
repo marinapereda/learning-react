@@ -1,12 +1,10 @@
-import { useState, useEffect } from "react";
 import { useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import CartItemDetail from "../../components/CartItemDetail";
-import Checkout from "../../components/Checkout/checkout";
-import { Cart } from "../cart/index";
+import { CheckoutForm } from "../../components/CheckoutForm/checkoutForm";
 
 const AddOrder = () => {
-  const { cart, totalQuantity, total } = useContext(CartContext);
+  const { cart, total } = useContext(CartContext);
 
   return (
     <>
@@ -17,7 +15,7 @@ const AddOrder = () => {
         ))}
         <h3>Total: ${total}</h3>
       </div>
-      <Checkout />
+      <CheckoutForm />
     </>
   );
 };
