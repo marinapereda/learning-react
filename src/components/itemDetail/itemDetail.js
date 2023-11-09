@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import ItemCount from "../itemCount/itemCount.js";
 import { CartContext } from "../../context/CartContext.jsx";
+import ImageWithLoadingBlur from "../imageLoading/imageLoading.js";
 
 import "./itemDetail.css";
 
@@ -12,15 +13,19 @@ const ItemDetail = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
   const currentItem = cart.find((item) => item.ID === ID);
   const totalQuantityInCart = currentItem ? currentItem.quantity : 0;
 
+  const [quantityAdded, setQuantityAdded] = useState(0);
+
   const [currentSessionQuantity, setCurrentSessionQuantity] = useState(0);
 
   const handleOnAdd = (quantity) => {
     setCurrentSessionQuantity(quantity);
+    setQuantityAdded(quantity);
 
     const item = {
       ID,
       Name,
       Price,
+      Image,
     };
 
     addItem(item, quantity);
@@ -45,26 +50,27 @@ const ItemDetail = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
             <div className="card-counter">
               {Stock - totalQuantityInCart > 0 ? (
                 <>
-                  <ItemCount
-                    initial={1}
-                    stock={Stock - totalQuantityInCart}
-                    onAdd={handleOnAdd}
-                  />
-                  {currentSessionQuantity > 0 && (
+                  {quantityAdded > 0 ? (
                     <Link
                       to="/cart"
-                      className="Option"
+                      className="Option btn btn-primary test"
                       onClick={handleBuyNowClick}
                     >
                       Buy Now!
                     </Link>
+                  ) : (
+                    <ItemCount
+                      initial={1}
+                      stock={Stock - totalQuantityInCart}
+                      onAdd={handleOnAdd}
+                    />
                   )}
                 </>
               ) : (
                 <p>Out of stock</p>
               )}
             </div>
-            <img src={Image} alt={Name} />
+            <ImageWithLoadingBlur src={Image} alt={Name} />
           </div>
           <footer className="card-footer">
             <h3>{Name}</h3>
