@@ -19,7 +19,8 @@ const CategoryDetailContainer = () => {
   }, [Category]);
 
   return (
-    <div className="row rowTest">
+    <div className="container">
+      <h2>{Category}</h2>
       <ItemList products={products} />
     </div>
   );

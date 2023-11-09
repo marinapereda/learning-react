@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import ItemCount from "../itemCount/itemCount.js";
 import { CartContext } from "../../context/CartContext.jsx";
 
+import "./itemDetail.css";
+
 const ItemDetail = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
   const { cart, addItem } = useContext(CartContext);
 
@@ -32,35 +34,47 @@ const ItemDetail = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
   console.log("Stock:", { Stock });
 
   return (
-    <article id={ID} className="col col-4 list-product-ind item">
+    <article
+      id={ID}
+      className="col col-4 list-product-ind item"
+      data-cat={Category}
+    >
       <div className="card">
         <section className="card-body">
-          <img src={Image} alt={Name} />
-          <h2>{Name}</h2>
-          <span className="category">{Category}</span>
-          <span className="price">
-            <span className="currency-symbol">$</span>
-            {Price}
-          </span>
-        </section>
-        <footer className="card-footer">
-          {Stock - totalQuantityInCart > 0 ? (
-            <>
-              <ItemCount
-                initial={1}
-                stock={Stock - totalQuantityInCart}
-                onAdd={handleOnAdd}
-              />
-              {currentSessionQuantity > 0 && (
-                <Link to="/cart" className="Option" onClick={handleBuyNowClick}>
-                  Buy Now!
-                </Link>
+          <div className="card-image">
+            <div className="card-counter">
+              {Stock - totalQuantityInCart > 0 ? (
+                <>
+                  <ItemCount
+                    initial={1}
+                    stock={Stock - totalQuantityInCart}
+                    onAdd={handleOnAdd}
+                  />
+                  {currentSessionQuantity > 0 && (
+                    <Link
+                      to="/cart"
+                      className="Option"
+                      onClick={handleBuyNowClick}
+                    >
+                      Buy Now!
+                    </Link>
+                  )}
+                </>
+              ) : (
+                <p>Out of stock</p>
               )}
-            </>
-          ) : (
-            <p>Out of stock</p>
-          )}
-        </footer>
+            </div>
+            <img src={Image} alt={Name} />
+          </div>
+          <footer className="card-footer">
+            <h3>{Name}</h3>
+            <span className="category">{Category}</span>
+            <span className="price">
+              <span className="currency-symbol">$</span>
+              {Price}
+            </span>
+          </footer>
+        </section>
       </div>
     </article>
   );

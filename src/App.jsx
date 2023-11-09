@@ -45,24 +45,17 @@ function App() {
             <NavBar />
           </header>
           <main className="pt-3">
-            <div className="container">
-              <div className="row">
-                <Routes>
-                  <Route
-                    path="/"
-                    element={<ItemListContainer greeting={"Welcome"} />}
-                  />
-                  <Route
-                    path="/:Category"
-                    element={<CategoryDetailContainer />}
-                  />
-                  <Route path="/item/:ID" element={<ItemDetailContainer />} />
-                  <Route path="/cart" element={<Cart />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/checkout" element={<AddOrder />} />
-                </Routes>
-              </div>
-            </div>
+            <Routes>
+              <Route
+                path="/"
+                element={<ItemListContainer greeting={"Welcome"} />}
+              />
+              <Route path="/:Category" element={<CategoryDetailContainer />} />
+              <Route path="/item/:ID" element={<ItemDetailContainer />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/checkout" element={<AddOrder />} />
+            </Routes>
           </main>
         </CartProvider>
       </BrowserRouter>
