@@ -21,6 +21,12 @@
 - Firebase for backend database and hosting services
 - Context API for managing global state
 
+## Special Mention
+
+This project is an outcome of the React JS course I undertook at [CoderHouse](https://www.coderhouse.com.mx/), showcasing a modern approach to constructing scalable and maintainable web applications in the realm of e-commerce.
+
+- Special thanks to my course professor, [J. Adrian Solimano](https://ar.linkedin.com/in/j-adrian-solimano-96807710), for his invaluable guidance and expertise throughout the React JS course at CoderHouse. His teachings have been instrumental in the successful completion of this project.
+
 ## Getting Started
 
 To get a local copy up and running, follow these simple steps:
