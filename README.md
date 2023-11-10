@@ -27,6 +27,12 @@ This project is an outcome of the React JS course I undertook at [CoderHouse](ht
 
 - Special thanks to my course professor, [J. Adrian Solimano](https://ar.linkedin.com/in/j-adrian-solimano-96807710), for his invaluable guidance and expertise throughout the React JS course at CoderHouse. His teachings have been instrumental in the successful completion of this project.
 
+## Contact
+
+Marina Pereda - contact@marinapereda.dev
+
+Project Link: https://github.com/marinapereda/learning-react
+
 ## Getting Started
 
 To get a local copy up and running, follow these simple steps:
