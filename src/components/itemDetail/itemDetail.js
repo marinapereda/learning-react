@@ -92,7 +92,9 @@ const ItemDetail = ({
               )}
             </>
           ) : (
-            <p>Out of stock</p>
+            <div className="d-block text-start">
+              <p className="text-danger">Out of stock</p>
+            </div>
           )}
           <div className="description-txt">
             <p>{Description}</p>

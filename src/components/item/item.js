@@ -37,7 +37,7 @@ const Item = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
   return (
     <article
       id={ID}
-      className="col col-4 mb-5 list-product-ind item"
+      className="col col-lg-4 col-md-6 col-sm-12 mb-5 list-product-ind item"
       data-cat={Category}
       onClick={handleCardClick}
     >
