@@ -1,0 +1,7 @@
+.category .row {
+	justify-content: start !important;
+}
+
+.category h2 {
+	text-transform: uppercase;
+}

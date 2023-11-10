@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import ItemList from "../itemList/itemList";
 import { fetchProducts } from "../itemListContainer/itemListContainer";
 
+import "./categoryDetailContainer.css";
+
 const CategoryDetailContainer = () => {
   const { Category } = useParams();
   const [products, setProducts] = useState([]);
@@ -19,7 +21,7 @@ const CategoryDetailContainer = () => {
   }, [Category]);
 
   return (
-    <div className="container">
+    <div className="container category">
       <h2>{Category}</h2>
       <ItemList products={products} />
     </div>
