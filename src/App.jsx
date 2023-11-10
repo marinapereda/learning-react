@@ -10,6 +10,7 @@ import {
   Nav,
   NavDropdown,
   Button,
+  Grid,
 } from "react-bootstrap";
 
 /* Font Awesome */
@@ -20,6 +21,8 @@ import {
   faPlus,
   faMinus,
   faTrashCan,
+  faCircleRight,
+  faCartPlus,
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./App.css";
@@ -34,7 +37,14 @@ import ItemDetailContainer from "./components/itemDetailContainer/itemDetailCont
 import CategoryDetailContainer from "./components/categoryDetailContainer/categoryDetailContainer.js";
 
 // Adding all imported icons to the library at once
-library.add(faShoppingCart, faPlus, faMinus, faTrashCan);
+library.add(
+  faShoppingCart,
+  faPlus,
+  faMinus,
+  faTrashCan,
+  faCircleRight,
+  faCartPlus
+);
 
 function App() {
   return (

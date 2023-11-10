@@ -3,10 +3,19 @@ import { Link } from "react-router-dom";
 import ItemCount from "../itemCount/itemCount.js";
 import { CartContext } from "../../context/CartContext.jsx";
 import ImageWithLoadingBlur from "../imageLoading/imageLoading.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import "./itemDetail.css";
 
-const ItemDetail = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
+const ItemDetail = ({
+  ID,
+  Name,
+  Image,
+  Category,
+  Description,
+  Price,
+  Stock,
+}) => {
   const { cart, addItem } = useContext(CartContext);
 
   // Find if the current item is already in the cart.
@@ -26,6 +35,9 @@ const ItemDetail = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
       Name,
       Price,
       Image,
+      Category,
+      Description,
+      Stock,
     };
 
     addItem(item, quantity);
@@ -39,50 +51,55 @@ const ItemDetail = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
   console.log("Stock:", { Stock });
 
   return (
-    <article
-      id={ID}
-      className="col col-4 list-product-ind item"
-      data-cat={Category}
-    >
-      <div className="card">
-        <section className="card-body">
-          <div className="card-image">
-            <div className="card-counter">
-              {Stock - totalQuantityInCart > 0 ? (
-                <>
-                  {quantityAdded > 0 ? (
-                    <Link
-                      to="/cart"
-                      className="Option btn btn-primary test"
-                      onClick={handleBuyNowClick}
-                    >
-                      Buy Now!
-                    </Link>
-                  ) : (
-                    <ItemCount
-                      initial={1}
-                      stock={Stock - totalQuantityInCart}
-                      onAdd={handleOnAdd}
-                    />
-                  )}
-                </>
-              ) : (
-                <p>Out of stock</p>
-              )}
-            </div>
-            <ImageWithLoadingBlur src={Image} alt={Name} />
+    <>
+      <div className="row mt-5 mv-5 align-items-center product-single">
+        <div id={ID} className="col col-6" data-cat={Category}>
+          <div className="card">
+            <section className="card-body">
+              <div className="card-image">
+                <ImageWithLoadingBlur src={Image} alt={Name} />
+              </div>
+            </section>
           </div>
-          <footer className="card-footer">
-            <h3>{Name}</h3>
-            <span className="category">{Category}</span>
-            <span className="price">
-              <span className="currency-symbol">$</span>
-              {Price}
-            </span>
-          </footer>
-        </section>
+        </div>
+        <div className="col col-6 product-description">
+          <h1>{Name}</h1>
+          <span className="category">
+            <em>Collection:</em> {Category}
+          </span>
+          <span className="price">
+            <span className="currency-symbol">$</span>
+            {Price}
+          </span>
+          {Stock - totalQuantityInCart > 0 ? (
+            <>
+              {quantityAdded > 0 ? (
+                <div className="Option d-grid">
+                  <Link
+                    to="/cart"
+                    className="btn btn-danger"
+                    onClick={handleBuyNowClick}
+                  >
+                    Buy Now! <FontAwesomeIcon icon="fa-solid fa-circle-right" />
+                  </Link>
+                </div>
+              ) : (
+                <ItemCount
+                  initial={1}
+                  stock={Stock - totalQuantityInCart}
+                  onAdd={handleOnAdd}
+                />
+              )}
+            </>
+          ) : (
+            <p>Out of stock</p>
+          )}
+          <div className="description-txt">
+            <p>{Description}</p>
+          </div>
+        </div>
       </div>
-    </article>
+    </>
   );
 };
 

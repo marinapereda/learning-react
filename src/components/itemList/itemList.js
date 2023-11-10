@@ -29,7 +29,7 @@ const ItemList = ({ products }) => {
 
   return (
     <>
-      <div className="row item-list">
+      <div className="row justify-content-between item-list mv-5 mb-5 mt-5 gx-5 gy-3">
         {products.map((product) => (
           <Item key={product.ID} {...product} />
         ))}

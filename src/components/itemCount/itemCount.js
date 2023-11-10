@@ -2,6 +2,8 @@ import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "react-bootstrap";
 
+import "./itemCount.css";
+
 const ItemCount = ({ stock, initial, onAdd }) => {
   const [quantity, setQuantity] = useState(initial);
 
@@ -47,17 +49,19 @@ const ItemCount = ({ stock, initial, onAdd }) => {
           </div>
         </div>
       </div>
-      <div className="col-auto AddToCart">
-        <Button
-          className="btn btn-danger"
-          onClick={(e) => {
-            e.stopPropagation();
-            onAdd(quantity);
-          }}
-          disabled={!stock}
-        >
-          Add to Cart
-        </Button>
+      <div className="col AddToCart">
+        <div class="d-grid">
+          <Button
+            className="btn btn-primary"
+            onClick={(e) => {
+              e.stopPropagation();
+              onAdd(quantity);
+            }}
+            disabled={!stock}
+          >
+            Add to Cart <FontAwesomeIcon icon="fa-solid fa-cart-plus" />
+          </Button>
+        </div>
       </div>
     </div>
   );

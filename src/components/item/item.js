@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import ItemCount from "../itemCount/itemCount.js";
 import { CartContext } from "../../context/CartContext.jsx";
 import ImageWithLoadingBlur from "../imageLoading/imageLoading.js";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Item = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
   const navigate = useNavigate();
@@ -36,7 +37,7 @@ const Item = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
   return (
     <article
       id={ID}
-      className="col col-4 list-product-ind item"
+      className="col col-4 mb-5 list-product-ind item"
       data-cat={Category}
       onClick={handleCardClick}
     >
@@ -45,13 +46,15 @@ const Item = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
           <div className="card-image">
             <div className="card-counter">
               {quantityAdded > 0 ? (
-                <Link
-                  to="/cart"
-                  className="Option btn btn-primary test"
-                  onClick={handleBuyNowClick}
-                >
-                  Buy Now!
-                </Link>
+                <div className="Option d-grid">
+                  <Link
+                    to="/cart"
+                    className="btn btn-danger"
+                    onClick={handleBuyNowClick}
+                  >
+                    Buy Now! <FontAwesomeIcon icon="fa-solid fa-circle-right" />
+                  </Link>
+                </div>
               ) : (
                 <ItemCount initial={1} stock={Stock} onAdd={handleOnAdd} />
               )}
@@ -59,11 +62,11 @@ const Item = ({ ID, Name, Image, Desc, Price, Stock, Category }) => {
             <ImageWithLoadingBlur src={Image} alt={Name} />
           </div>
           <footer className="card-footer">
-            <div className="row">
-              <div className="col col-sm-8">
+            <div className="row align-items-center">
+              <div className="col col-sm-8 text-start">
                 <h3>{Name}</h3>
               </div>
-              <div className="col col-sm-4">
+              <div className="col col-sm-4 text-end">
                 <span className="price">
                   <span className="currency-symbol">$</span>
                   {Price}

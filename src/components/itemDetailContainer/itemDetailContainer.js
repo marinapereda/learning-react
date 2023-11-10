@@ -27,6 +27,7 @@ const ItemDetailContainer = () => {
             Price: data.Price,
             Image: data.Image,
             Stock: data.Stock,
+            Category: data.Category,
           };
           setProduct(productAdapted);
         } else {

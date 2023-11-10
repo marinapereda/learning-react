@@ -1,0 +1,25 @@
+.CartItemDetail-Single {
+	padding: 20px;
+	display: flex;
+	flex-direction: row;
+	background-color: #eee;
+	border: 0;
+}
+
+.CartItemDetail-Single .card-image img {
+	max-width: 100%;
+}
+
+.CartItemDetail-Single .list-group {
+	background-color: transparent;
+}
+
+.CartItemDetail-Single .list-group-item {
+	background-color: transparent;
+}
+
+.receipt-total h3 {
+	font-size: 1.4em;
+	line-height: 1em;
+	font-weight: 600;
+}

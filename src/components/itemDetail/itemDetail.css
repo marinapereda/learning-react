@@ -15,9 +15,17 @@ article.list-product-ind .card .card-body {
 article.list-product-ind .card .card-body h3 {
 	margin: 0;
 	padding: 0;
-	font-size: 1em;
+	font-size: .88em;
 	line-height: 1.1em;
 	text-align: left;
+}
+
+article.list-product-ind .card .card-body .price {
+	margin: 0;
+	padding: 0;
+	font-size: .88em;
+	line-height: 1.1em;
+	text-align: right;
 }
 
 article.list-product-ind .card .card-body .card-image {
@@ -27,24 +35,28 @@ article.list-product-ind .card .card-body .card-image {
 }
 
 article.list-product-ind .card .card-body .card-image img {
+	max-width: 100%;
 	cursor: pointer;
 
 	transform: scale(1);
-
 	transition: all .2s ease-out;
 }
 
 article.list-product-ind .card .card-body .card-counter {
-	padding: 6px;
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	right: 0;
 	background-color: #fff;
 	z-index: 2;
-
 	transform: translateY(52px);
 	transition: all .2s ease-out;
+}
+
+article.list-product-ind .card .card-body .card-counter .Counter,
+article.list-product-ind .card .card-body .card-counter .Option {
+	padding: 6px;
+	background-color: #fff;
 }
 
 .list-product-ind .card .card-footer {
@@ -66,4 +78,71 @@ article.list-product-ind:hover .card .card-body img {
 article.list-product-ind:hover .card .card-body .card-counter {
 	transform: translateY(0px);
 	transition: all .2s ease-out;
+}
+
+.product-single .card .card-image img {
+	max-width: 100%;
+}
+
+.product-description {
+	display: flex;
+	flex-direction: column;
+}
+
+.product-description h1 {
+	display: flex;
+	flex-direction: row;
+	font-size: 1.6em;
+	line-height: 1.15em;
+	text-align: left;
+}
+
+.product-description .category {
+	margin: 0 0 24px;
+	display: flex;
+	flex-direction: row;
+	font-size: 1em;
+	line-height: 1em;
+	text-align: left;
+	text-transform: uppercase;
+	color: #212122;
+}
+
+.product-description .category em {
+	color: #b6b6b6;
+	text-transform: initial;
+}
+
+.product-description .price {
+	margin: 0 0 30px;
+	display: flex;
+	flex-direction: row;
+	font-size: 1.2em;
+	line-height: 1em;
+	font-weight: 700;
+	text-align: left;
+	color: #666;
+}
+
+.Counter {
+	justify-content: start !important;
+}
+
+.Counter .col-auto {
+	margin-top: 0;
+}
+
+.product-description .description-txt {
+	margin-top: 45px;
+	display: flex;
+	flex-direction: row;
+	font-size: 1em;
+	line-height: 1.45em;
+	font-weight: 400;
+	text-align: left;
+	color: #666;
+}
+
+.Option a svg {
+	margin-left: 6px;
 }

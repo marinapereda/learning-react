@@ -1,11 +1,13 @@
 import { useState, useEffect } from "react";
 import { ordersService } from "../../services/orders";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { CartContext } from "../../context/CartContext";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../../services/firebase/firebaseConfig.js";
 
 const CheckoutForm = () => {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
   const [timestamp, setTimestamp] = useState(Date.now());
   const { cart, clearCart, total } = useContext(CartContext);
@@ -41,12 +43,11 @@ const CheckoutForm = () => {
     setLoading(true);
 
     // Set the timestamp to the current time
-    const currentTimestamp = Date.now(); // Or use new Date() to get a date object
+    const currentTimestamp = Date.now();
 
-    // Construct the order data with the timestamp
     const orderData = {
       ...order,
-      timestamp: currentTimestamp, // This is the client-side timestamp, consider using serverTimestamp() for consistency
+      timestamp: currentTimestamp,
       total: total,
     };
 
@@ -81,14 +82,13 @@ const CheckoutForm = () => {
       const docRef = await ordersService.createOrder(orderData);
       console.log("Order ID:", docRef.id);
 
-      // Clear the cart after a successful order
+      // Clear the cart & get back to the Homepage after a successful order
       clearCart();
+      navigate("/");
 
       console.log("Order placed and stock updated successfully.");
-      // ... handle additional success logic, such as redirecting to a confirmation page ...
     } catch (error) {
       console.error("Failed to place order or update stock:", error);
-      // ... handle the error ...
     } finally {
       setLoading(false);
     }
@@ -97,34 +97,43 @@ const CheckoutForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <input type="hidden" name="timestamp" value={timestamp} />
-      <div className="input-group">
-        <label htmlFor="">Name:</label>
+      <div className="d-block text-start mb-2">
+        <label className="form-label" htmlFor="">
+          Name:
+        </label>
         <input
           type="text"
           name="name"
+          className="form-control"
           value={order.name}
           onChange={(e) => setOrder({ ...order, name: e.target.value })}
         ></input>
       </div>
-      <div className="input-group">
-        <label htmlFor="">Email:</label>
+      <div className="d-block text-start mb-2">
+        <label className="form-label" htmlFor="">
+          Email:
+        </label>
         <input
           type="email"
           name="email"
+          className="form-control"
           value={order.email}
           onChange={(e) => setOrder({ ...order, email: e.target.value })}
         ></input>
       </div>
-      <div className="input-group">
-        <label>Your Order Information:</label>
+      <div className="d-block text-start mb-4">
+        <label className="form-label">Your Order Information:</label>
         <textarea
           name="orderDetails"
           value={order.orderDetails}
+          className="form-control"
           readOnly
         ></textarea>
       </div>
-      <div className="input-group">
-        <button type="submit">Purchase</button>
+      <div className="d-block text-start">
+        <button type="submit" className="btn btn-danger">
+          Purchase
+        </button>
       </div>
     </form>
   );
